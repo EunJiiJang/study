@@ -1,3 +1,4 @@
+#이진트리탐색
 class Node:
     def __init__(self,value):
         self.value = value
