@@ -105,7 +105,7 @@ class NoneMgmt:
                 else:
                     self.change_node_parent.left =None
                 self.parent.right = self.change_node
-                self.change_node.left = self.current_node.left
+                self.change_node.left = self.current_node.left 
                 self.change_node.right = self.current_node.right            
             
         return True
