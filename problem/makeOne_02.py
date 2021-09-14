@@ -1,17 +1,16 @@
-#시간초과
-#메모이제이션
 n = int(input())
-cnt = 0
-while n >= 0 :
-    if n % 3 == 0:
-        n = (n//3)
-        cnt += 1
-    elif n % 2 == 0:
-        n = (n//2)
-        cnt += 1
-    else :
-        n -= 1
-        cnt += 1
-    if n == 1:
-        print(cnt)
-        break
+#아래의 주석은 틀릴가능성이있음
+#배열을 0으로 초기화한다.
+arr = [0]*(n+1)
+
+#숫자 0이나,1을 입력했을경우 값이 0이기 때문에 2부터 반복시작
+for i in range(2,n+1):
+    #값을 도출하는 식이다.
+    arr[i] = arr[i-1]+1
+    if i%2==0 and arr[i]>arr[i//2]+1:
+        #2로나누었을 경우 한번의 계산을 더했기 때문에 1을 더해준다.
+        arr[i]=arr[i//2]+1
+    if i%3==0 and arr[i]>arr[i//3]+1:
+        #3로나누었을 경우 한번의 계산을 더했기 때문에 1을 더해준다.
+        arr[i]=arr[i//3]+1
+print(arr[n])
