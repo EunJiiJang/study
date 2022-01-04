@@ -12,6 +12,7 @@ def bfs(x,y):
             if 0 <= q < n and 0 <= w < m and s[q][w] == 1:
                 s[q][w] = 0
                 queue.append([q, w])
+                
 for i in range(t):
     m ,n ,k =map(int,input().split())
     s = [[0] * m for i in range(n)]
