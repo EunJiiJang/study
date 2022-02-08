@@ -49,6 +49,3 @@ for i in range(t):
                 visit[j][k] = 1
     result = bfs()
     print(result + 1 if result != None else "IMPOSSIBLE")
-    print(s)
-    print(f)
-    print(visit)
