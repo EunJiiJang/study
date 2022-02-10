@@ -6,32 +6,35 @@ dy = [0, 0, -1, 1]
 
 def bfs():
     global q,w
-    while q:
-        temp = deque()
+    while q or w:
+        temp1 = []
+        temp2 = []
         while q:
             x,y = q.popleft()
-            if (x == goal[0][0] and y == goal[0][1]) and s[x][y] != "*": 
-                return s[x][y]
-            for i in range(4):
-                nx = x + dx[i]
-                ny = y + dy[i]
-                #이동했을때 불이없는곳
-                if 0 <= nx < c and 0 <= ny < r and s[nx][ny] == "." and s[x][y] != "*":
-                    s[nx][ny] = s[x][y] + 1
-                    #새로이동한 곳에대해 조사필요
-                    temp.append([nx, ny])
-        q = temp
-        temp = deque()
+            if s[x][y] != "*": 
+                for i in range(4):
+                    nx = x + dx[i]
+                    ny = y + dy[i]
+                    #이동했을때 불이없는곳
+                    if 0 <= nx < r and 0 <= ny < c and visit[nx][ny] == 0 and s[nx][ny] != "X" and s[nx][ny] != "*":
+                        s[nx][ny] = s[x][y] + 1
+                        #새로이동한 곳에대해 조사필요
+                        visit[nx][ny] = 1
+                        temp1.append([nx, ny])
         while w:
             x, y = w.popleft()
             for i in range(4):
                 nx = x + dx[i]
                 ny = y + dy[i]
-                if 0 <= nx < c and 0 <= ny < r and visit[nx][ny] == 0:
+                if nx == goal[0][0] and ny == goal[0][1]:
+                    continue
+                if 0 <= nx < r and 0 <= ny < c and s[nx][ny] != "*" and s[nx][ny] != "X":
                     s[nx][ny] = "*"
-                    visit[nx][ny] = 1
-                    temp.append([nx, ny])
-        w = temp
+                    temp2.append([nx, ny])
+        for i in temp1:
+            q.append(i)
+        for i in temp2:
+            w.append(i)
 
 
 r,c = map(int,input().split())
@@ -39,15 +42,20 @@ s,q,w = [],deque(),deque()
 visit = [[0]*c for i in range(r)]
 goal = []
 for i in range(r):
-    s.append(list(input().strip()))
+    a = list(input().strip())
+    s.append(a)
     for j in range(c):
-        if s[i][j] == "S":
+        if a[j] == "S":
             q.append([i,j])
             s[i][j] = 0
-        elif s[i][j] == "*":
+            visit[i][j] = 1
+        elif a[j] == "*":
             w.append([i,j])
             visit[i][j] = 1
-        elif s[i][j] == "D":
+        elif a[j] == "D":
             goal.append([i,j])
-result = bfs()
-print(result if result != None else "KAKTUS")
+bfs()
+result = s[goal[0][0]][goal[0][1]]
+print(result if result != "D" else "KAKTUS")
+print(s)
+print(visit)
