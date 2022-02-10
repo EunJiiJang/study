@@ -10,12 +10,16 @@ def bfs():
         temp = deque()
         while q:
             x, y = q.popleft()
-            if (x == h - 1 or y == w - 1 or x == 0 or y == 0) and s[x][y] != "*": return s[x][y]
+            #현재위치가 가장자리에 닿았을때
+            if (x == h - 1 or y == w - 1 or x == 0 or y == 0) and s[x][y] != "*": 
+                return s[x][y]
             for i in range(4):
                 nx = x + dx[i]
                 ny = y + dy[i]
+                #이동했을때 불이없는곳
                 if 0 <= nx < h and 0 <= ny < w and s[nx][ny] == "." and s[x][y] != "*":
                     s[nx][ny] = s[x][y] + 1
+                    #새로이동한 곳에대해 조사필요
                     temp.append([nx, ny])
         q = temp
         temp = deque()
