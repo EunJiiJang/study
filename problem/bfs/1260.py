@@ -1,10 +1,11 @@
+#1234567노드순
 def dfs(v):
     print(v,end=' ')
     visit[v] = 1
     for i in range(1,n+1):
         if visit[i] == 0 and s[v][i] == 1:
             dfs(i)
-
+#1번과 연결된 노드순
 def bfs(v):
     q = [v]
     visit[v] = 0
