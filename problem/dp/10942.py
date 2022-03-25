@@ -1,6 +1,21 @@
+import sys
+input = sys.stdin.readline
 n = int(input())
-arr = list(map(int,input().split()))
+numbers  = list(map(int,input().split()))
 m = int(input())
-num = []
+dp = [[0]*n for _ in range(n)]
 
-https://velog.io/@himi/%EB%B0%B1%EC%A4%80-10942.-%ED%8C%B0%EB%A6%B0%EB%93%9C%EB%A1%AC
+for num in range(n):
+    for start in range(n-num):
+        end = start + num
+
+        if start == end:
+            dp[start][end] = 1
+        elif numbers[start] == numbers[end]:
+            if start+1==end:dp[start][end] =1
+            elif dp[start+1][end-1] == 1:dp[start][end] = 1
+
+
+for question in range(m):
+    s, e = map(int, input().split())
+    print(dp[s-1][e-1])
