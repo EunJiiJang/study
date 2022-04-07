@@ -1,6 +1,7 @@
+import sys
 from collections import Counter
-word = list(map(str,input().strip()))
-word.sort
+word = list(map(str, sys.stdin.readline().strip()))
+word.sort()
 check = Counter(word)
 cen = ""
 cnt = 0
