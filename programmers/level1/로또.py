@@ -13,7 +13,7 @@ def solution(lottos, win_nums):
     answer[0] = s[z+cnt]     
     answer[1] = s[cnt]
 
-    return answer
+    return answer  
 
 
 
