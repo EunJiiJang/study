@@ -1,0 +1,155 @@
+You are inside question view of 문장 만들기
+
+5h 7m left
+
+Skip to main content
+ALL
+2
+3
+4
+5
+6
+4. 문장 만들기
+단어의 배열과 문장의 배열이 주어졌을 때, 어떤 단어가 서로 anagram 인지 확인하세요. 단어를 anagram 중 하나로 대체했을 때, 총 몇 개의 문장을 만들 수 있는지 계산하세요.
+
+ 
+
+Anagram: 단어나 문장을 구성하고 있는 문자의 순서를 바꾸어 만든 다른 단어나 문장
+
+ 
+
+ 
+
+예시
+ 
+
+wordSet = ['listen', 'silent', 'it', 'is']
+sentences = ['listen it is silent']
+listen은 silent의 anagram입니다. 두 단어는 각각 서로의 anagram으로 대체될 수 있습니다. 만들 수 있는 4개의 문장은 아래와 같습니다.
+
+ 
+
+listen it is silent
+
+listen it is listen
+
+silent it is silent
+
+silent it is listen
+
+ 
+
+ 
+
+함수 설명
+ 
+
+countSentences 함수를 완성하세요.
+
+ 
+
+countSentences 함수는 다음과 같은 매개변수를 갖습니다.
+
+ 
+
+string wordSet[n]: an array of strings
+
+string sentences[m]: an array of strings
+
+ 
+
+countSentences 는 다음과 같은 값을 반환합니다.
+
+ 
+
+int[]: 각 문장으로 만들 수 있는 문장의 수를 나타내는 m개의 정수 배열
+
+ 
+
+ 
+
+제약 조건
+ 
+
+0 < n ≤ $10^5$
+
+1 ≤ 각 단어의 길이 ≤ 20
+
+1 ≤ m ≤ 1000
+
+3 ≤ 각 문장에 포함되는 단어의 수 ≤ 20
+
+ 
+
+ 
+
+Sample Case
+ 
+
+Sample Input
+
+STDIN     Function
+-----     -----
+6      →  wordSet[] size n = 6
+the    →  wordSet = ['the', 'bats', 'tabs', 'in', 'cat', 'act']
+bats
+tabs
+in
+cat
+act
+3      → sentences[] size m = 3
+cat the bats  →  sentences = ['cat the bats', 'in the act', 'act tabs in']
+in the act
+act tabs in
+Sample Output
+
+4
+2
+4
+Language
+C
+
+Autocomplete Ready
+
+
+
+
+More
+19202122232425262728293031323334353637383940414243444546474849505152535455565758
+#include <assert.h>
+#include <ctype.h>
+#include <limits.h>
+#include <math.h>
+#include <stdbool.h>
+#include <stddef.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+char* readline();
+char* ltrim(char*);
+char* rtrim(char*);
+
+int parse_int(char*);
+
+
+/*
+ * Complete the 'countSentences' function below.
+ *
+ * The function is expected to return a LONG_INTEGER_ARRAY.
+ * The function accepts following parameters:
+ *  1. STRING_ARRAY wordSet
+ *  2. STRING_ARRAY sentences
+
+Line: 1 Col: 1
+
+Test Results
+
+Custom Input
+
+Run Code
+
+Run Tests
+
+Submit

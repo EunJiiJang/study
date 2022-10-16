@@ -1,0 +1,177 @@
+You are inside question view of 상품 리스트 페이지네이션
+
+5h 6m left
+
+Skip to main content
+ALL
+2
+3
+4
+5
+6
+5. 상품 리스트 페이지네이션
+블리가 운영하는 쇼핑몰의 상품 개수가 너무 많아져, 블리는 상품 리스트를 페이지 형태로 잘라, 넘기면서 볼 수 있는 기능을 만드려고 합니다.
+
+ 
+
+상품은 [name, relevance, price] 이 담긴 1차원 String 배열로 이루어져 있습니다. 페이지네이션 함수는 상품이 여러개 담긴 리스트를 매개변수로 넘겨받습니다.
+sortOrder 는 0: 오름차순, 1: 내림차순입니다.
+한 페이지에 노출될 상품의 수 또한 매개변수로 넘겨받습니다. 다만, 마지막 페이지의 경우에는 지정된 노출 상품 수보다 실제 상품 수가 적을 수 있습니다.
+페이지는 0번부터 시작한다고 가정합니다.
+ 
+
+이때, 블리를 도와 상품의 이름들을 정렬 순서에 맞게 반환하는 함수를 작성하세요.
+
+ 
+ 
+예시
+ 
+
+items = [['item1', '10', '15'], ['item2', '3', '4'], ['item3', '17', '8']]
+
+sortParameter = 1
+
+sortOrder = 0
+
+itemsPerPage = 2
+
+pageNumber = 1
+
+ 
+
+n = 3개
+Sort them by (relevance: 1) in ascending order (items = [['item2', '3', '4'], ['item1', '10', '15'], ['item3', '17', '8']])
+itemsPerPage 가 2 이기 때문에, 각 페이지마다 상품을 2개씩 노출합니다.
+The page 0 contains 2 item names ['item2', 'item1'] and page 1 contains only 1 item name, so result = 'item3'
+ 
+ 
+함수 설명
+ 
+
+fetchItemsToDisplay 함수를 완성하세요.
+
+ 
+
+fetchItemToDisplay 는 다음과 같은 매개 변수를 갖습니다.
+
+ 
+
+string items[n][3]: 항목이 [name, relevance, price]로 이루어진 상품을 담는 배열입니다. 배열의 전체적인 형태는 2차원 문자열 배열의 형태를 지닙니다.
+int sortParameter: 정렬의 기준이 될 객체의 index
+int sortOrder: 정렬 순서. 0 = 오름차순, 1 = 내림차순
+int itemPerPage: 한 페이지에 보여질 객체의 수. 0부터 시작.
+int pageNumber: 선택한 페이지 번호.
+ 
+
+fetchItemToDisplay 는 다음과 같은 값을 반환합니다.
+
+ 
+
+string pageItems[m]: 요청한 페이지에 있는 상품의 이름을 담은 리스트입니다. 순서는 정렬 기준에 맞추어야 합니다.
+ 
+ 
+제약 조건
+ 
+
+1 ≤ n < 105
+1 ≤ m ≤ n
+0 ≤ relevance, price < 108
+1 ≤ itemsPerPage < 20
+0 ≤ pageNumber < 10
+ 
+
+ 
+
+Sample case 0
+ 
+
+Sample input
+
+STDIN       Function
+-----       -----
+2       →   items[2][] size n = 2
+3       →   items[2][3] size of each item is always 3[name, relevance, price]
+p1 1 2  →   items[2][3] = [['p1', '1', '2'], ['p2', '2', '1']]
+p2 2 1
+0       →   sortParameter = 0 (name)
+0       →   sortOrder = 0 (ascending)
+1       →   itemsPerPage  = 1
+0       →   pageNumber = 0
+ 
+
+Sample output
+
+p1
+ 
+ 
+Sample case 1
+ 
+
+Sample input
+
+STDIN                             Function 
+-----                             -----
+4                             →   items[][] size n = 4 
+3                             →   items[4][3] size of each item is always 3 [name, relevance, price]
+owjevtkuyv 58584272 62930912  →   items[4][3] = [['owjevtkuyv', '58584272', '62930912' ],['rpaqgbjxik', '9425650', '96088250'],\\
+rpaqgbjxik 9425650 96088250                      ['dfbkasyqcn', '37469674', '46363902'],['vjrrisdfxe', '18666489', '88046739']]
+dfbkasyqcn 37469674 46363902
+vjrrisdfxe 18666489 88046739
+2                             →   sortParameter = 2 (price)
+1                             →   sortOrder = 1 (descending)
+2                             →   itemsPerPage = 2
+0                             →   pageNumber = 0
+ 
+
+Sample output
+
+rpaqgbjxik
+vjrrisdfxe
+Language
+C
+
+Autocomplete Ready
+
+
+
+
+More
+303132333435363738394041424344454647484950515253545556575859606162636465666768
+#include <assert.h>
+#include <ctype.h>
+#include <limits.h>
+#include <math.h>
+#include <stdbool.h>
+#include <stddef.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+char* readline();
+char* ltrim(char*);
+char* rtrim(char*);
+char** split_string(char*);
+
+int parse_int(char*);
+
+
+
+/*
+ * Complete the 'fetchItemsToDisplay' function below.
+ *
+ * The function is expected to return a STRING_ARRAY.
+ * The function accepts following parameters:
+ *  1. 2D_STRING_ARRAY items
+ 
+Line: 1 Col: 1
+
+Test Results
+
+Custom Input
+
+Run Code
+
+Run Tests
+
+Submit

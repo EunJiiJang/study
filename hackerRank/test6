@@ -1,0 +1,142 @@
+You are inside question view of 문자열 체인 길이 구하기
+
+5h 6m left
+
+Skip to main content
+ALL
+2
+3
+4
+5
+6
+6. 문자열 체인 길이 구하기
+단어 배열이 주어지면 각 단어에서 문자를 한 번에 하나씩 제거할 때 배열 내의 다른 단어로 만들 수 있는지 확인해주세요. 각 단어는 문자열 체인의 첫 번째 요소를 나타내므로 배열 내 모든 단어의 ‘문자열 체인 길이’는 1부터 시작합니다.
+
+문자를 제거할 때 ‘문자열 체인 길이'는 1만큼 커집니다. 문자를 제거하기 위해서는 제거된 결과에 해당하는 단어가 단어 배열 내에 있어야 합니다.
+
+ 
+
+주어진 배열 내에서 가장 긴 ‘문자열 체인 길이’는 몇인지 알려주세요.
+
+ 
+
+예시
+ 
+
+n = 4
+
+words = ['a', 'and', 'an', 'bear']
+
+ 
+
+단어 and 는 an 으로 줄일 수 있고 그 다음에는 a 로 줄일 수 있습니다. 글자 a 는 단어 리스트에 null 문자열이 없으므로 줄일 수 없습니다. 단어 bear 는 어느 단어로도 줄일 수 없습니다. 그러므로, 가장 긴 문자열 체인의 길이는 3입니다.
+
+ 
+ 
+
+함수 설명
+ 
+
+에디터에 있는 longestChain 함수를 완성하세요.
+
+ 
+
+longestChain 함수는 다음과 같은 매개변수를 갖습니다.
+
+ 
+
+int n: 단어 리스트의 길이
+string words[n]: 테스트할 문자열 리스트
+ 
+
+longestChain 함수는 다음과 같은 값을 반환합니다.
+
+ 
+
+int: 가장 긴 문자열 체인의 길이
+ 
+
+제약 조건
+ 
+
+1 ≤ n ≤ 50000
+1 ≤ |words[i]| ≤ 60, where 0 ≤ i < n
+Each words[i] is composed of lowercase letters in the range ascii[a-z].
+ 
+
+ 
+
+Sample Case
+ 
+
+Sample Input
+
+ 
+
+STDIN      Function
+-----      --------
+6      →   words[] size n = 6
+a      →   arr = ['a', 'b', 'ba', 'bca', 'bda', 'bdca']
+b
+ba
+bca
+bda
+bdca
+ 
+
+Sample Output
+
+ 
+
+4
+ 
+
+Language
+C
+
+Autocomplete Ready
+
+
+
+
+More
+119202122232425262728293031
+#include <assert.h>
+#include <ctype.h>
+#include <limits.h>
+#include <math.h>
+#include <stdbool.h>
+#include <stddef.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+char* readline();
+char* ltrim(char*);
+char* rtrim(char*);
+
+int parse_int(char*);
+
+
+
+/*
+ * Complete the 'longestChain' function below.
+ *
+ * The function is expected to return an INTEGER.
+ * The function accepts STRING_ARRAY words as parameter.
+ */
+
+int longestChain(int words_count, char** words) {
+
+Line: 19 Col: 1
+
+Test Results
+
+Custom Input
+
+Run Code
+
+Run Tests
+
+Submit
